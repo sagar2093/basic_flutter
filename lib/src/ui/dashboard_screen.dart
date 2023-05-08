@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../common/ui/group_header.dart';
 import '../settings/settings_view.dart';
+import 'basic_content.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -63,69 +65,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 }
 
-class BasicContent extends StatelessWidget {
-  const BasicContent({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      children: const [
-        ...[
-          Text("Actions"),
-          ListTile(title: Text("Buttons")),
-          ListTile(title: Text("Extended FAB")),
-          ListTile(title: Text("FAB")),
-          ListTile(title: Text("Icon Buttons")),
-          ListTile(title: Text("Segmented Button")),
-        ],
-        ...[
-          Text("Communication"),
-          ListTile(title: Text("Badges")),
-          ListTile(title: Text("Progress Indicators")),
-          ListTile(title: Text("Snackbar")),
-        ],
-        ...[
-          Text("Containment"),
-          ListTile(title: Text("Bottom Sheets")),
-          ListTile(title: Text("Cards")),
-          ListTile(title: Text("Carousel")),
-          ListTile(title: Text("Dialogs")),
-          ListTile(title: Text("Dividers")),
-          ListTile(title: Text("List")),
-          ListTile(title: Text("Side Sheets")),
-          ListTile(title: Text("Tooltips")),
-        ],
-        ...[
-          Text("Navigation"),
-          ListTile(title: Text("Bottom App Bar")),
-          ListTile(title: Text("Navigation Bar")),
-          ListTile(title: Text("Navigation Drawer")),
-          ListTile(title: Text("Navigation Rail")),
-          ListTile(title: Text("Search")),
-          ListTile(title: Text("Tabs")),
-          ListTile(title: Text("Top App Bar")),
-        ],
-        ...[
-          Text("Selection"),
-          ListTile(title: Text("Checkbox")),
-          ListTile(title: Text("Chips")),
-          ListTile(title: Text("Date Pickers")),
-          ListTile(title: Text("Menus")),
-          ListTile(title: Text("Radio Button")),
-          ListTile(title: Text("Sliders")),
-          ListTile(title: Text("Switch")),
-          ListTile(title: Text("Time Pickers")),
-        ],
-        ...[
-          Text("Other"),
-          ListTile(title: Text("Text Inputs")),
-          ListTile(title: Text("Color Schemes")),
-        ]
-      ],
-    );
-  }
-}
-
 class AdvancedContent extends StatelessWidget {
   const AdvancedContent({Key? key}) : super(key: key);
 
@@ -137,14 +76,13 @@ class AdvancedContent extends StatelessWidget {
         ListTile(title: Text("Localization")),
         ListTile(title: Text("Fonts")),
         ...[
-          Text("Flutter Favorite"),
+          GroupHeader("Flutter Favorites"),
           ListTile(title: Text("Shared Preferences")),
           ListTile(title: Text("Url Launcher")),
           ListTile(title: Text("Image Picker")),
           ListTile(title: Text("File Picker")),
           ListTile(title: Text("Video Player")),
         ],
-
       ],
     );
   }
