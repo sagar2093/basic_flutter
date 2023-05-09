@@ -9,4 +9,25 @@ extension ContextExt on BuildContext {
       MaterialPageRoute(builder: builder),
     );
   }
+
+  Future<dynamic> navigateToDynamicScreen(String title, Widget content) {
+    return navigateToCustomScreen(
+        builder: (c) => DynamicScreen(title: title, content: content));
+  }
+}
+
+class DynamicScreen extends StatelessWidget {
+  const DynamicScreen({required this.title, required this.content, Key? key})
+      : super(key: key);
+
+  final String title;
+  final Widget content;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(title)),
+      body: SafeArea(child: content),
+    );
+  }
 }

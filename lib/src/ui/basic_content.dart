@@ -1,12 +1,14 @@
 import 'package:basic_flutter/src/common/extensions/context_ext.dart';
+import 'package:basic_flutter/src/ui/components/badge_content.dart';
 import 'package:basic_flutter/src/ui/components/icon_button_toggle.dart';
+import 'package:basic_flutter/src/ui/components/progress_indicators_content.dart';
 import 'package:basic_flutter/src/ui/components/segmented_button_content.dart';
+import 'package:basic_flutter/src/ui/components/snackbar_content.dart';
 import 'package:flutter/material.dart';
 
 import '../common/ui/group_header.dart';
 import 'components/button_content.dart';
 import 'components/icon_button_content.dart';
-import 'dynamic_screen.dart';
 
 class BasicContent extends StatelessWidget {
   const BasicContent({Key? key}) : super(key: key);
@@ -71,10 +73,24 @@ class BasicContent extends StatelessWidget {
               }),
         ],
         ...[
-          const  GroupHeader("Communication"),
-          ListTile(title: const Text("Badges"), onTap: () {}),
-          ListTile(title: const Text("Progress Indicators"), onTap: () {}),
-          ListTile(title: const Text("Snackbar"), onTap: () {}),
+          const GroupHeader("Communication"),
+          ListTile(
+              title: const Text("Badges"),
+              onTap: () {
+                context.navigateToDynamicScreen("Badges", const BadgeContent());
+              }),
+          ListTile(
+              title: const Text("Progress Indicators"),
+              onTap: () {
+                context.navigateToDynamicScreen(
+                    "Progress Indicators", const ProgressIndicatorsContent());
+              }),
+          ListTile(
+              title: const Text("Snackbar"),
+              onTap: () {
+                context.navigateToDynamicScreen(
+                    "Snackbar", const SnackbarContent());
+              }),
         ],
         ...[
           const GroupHeader("Containment"),
