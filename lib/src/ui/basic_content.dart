@@ -1,14 +1,23 @@
 import 'package:basic_flutter/src/common/extensions/context_ext.dart';
-import 'package:basic_flutter/src/ui/components/badge_content.dart';
-import 'package:basic_flutter/src/ui/components/icon_button_toggle.dart';
-import 'package:basic_flutter/src/ui/components/progress_indicators_content.dart';
-import 'package:basic_flutter/src/ui/components/segmented_button_content.dart';
-import 'package:basic_flutter/src/ui/components/snackbar_content.dart';
 import 'package:flutter/material.dart';
 
 import '../common/ui/group_header.dart';
+import 'components/badge_content.dart';
+import 'components/bottom_sheet_content.dart';
 import 'components/button_content.dart';
+import 'components/card_content.dart';
+import 'components/carousel_content.dart';
+import 'components/dialog_content.dart';
+import 'components/divider_content.dart';
 import 'components/icon_button_content.dart';
+import 'components/icon_button_toggle.dart';
+import 'components/list_content.dart';
+import 'components/progress_indicators_content.dart';
+import 'components/segmented_button_content.dart';
+import 'components/selection_content.dart';
+import 'components/side_sheets_content.dart';
+import 'components/snackbar_content.dart';
+import 'components/tooltips_content.dart';
 
 class BasicContent extends StatelessWidget {
   const BasicContent({Key? key}) : super(key: key);
@@ -22,54 +31,37 @@ class BasicContent extends StatelessWidget {
           ListTile(
             title: const Text("Buttons"),
             onTap: () {
-              context.navigateToCustomScreen(
-                builder: (c) => const DynamicScreen(
-                    title: "Buttons", content: ButtonContent()),
-              );
+              context.navigateToDynamicScreen("Buttons", const ButtonContent());
             },
           ),
           ListTile(
             title: const Text("Extended FAB"),
             onTap: () {
-              context.navigateToCustomScreen(
-                builder: (c) =>
-                    const DynamicScreen(title: "FAB", content: FabContent()),
-              );
+              context.navigateToDynamicScreen("FAB", const FabContent());
             },
           ),
           ListTile(
               title: const Text("FAB"),
               onTap: () {
-                context.navigateToCustomScreen(
-                  builder: (c) =>
-                      const DynamicScreen(title: "FAB", content: FabContent()),
-                );
+                context.navigateToDynamicScreen("FAB", const FabContent());
               }),
           ListTile(
               title: const Text("Icon Buttons"),
               onTap: () {
-                context.navigateToCustomScreen(
-                  builder: (c) => const DynamicScreen(
-                      title: "Icon Buttons", content: IconButtonContent()),
-                );
+                context.navigateToDynamicScreen(
+                    "Icon Buttons", const IconButtonContent());
               }),
           ListTile(
               title: const Text("Icon Button Toggles"),
               onTap: () {
-                context.navigateToCustomScreen(
-                  builder: (c) => const DynamicScreen(
-                      title: "Icon Button Toggles",
-                      content: IconButtonToggleContent()),
-                );
+                context.navigateToDynamicScreen(
+                    "Icon Button Toggles", const IconButtonToggleContent());
               }),
           ListTile(
               title: const Text("Segmented Button"),
               onTap: () {
-                context.navigateToCustomScreen(
-                  builder: (c) => const DynamicScreen(
-                      title: "Segmented Button",
-                      content: SegmentedButtonContent()),
-                );
+                context.navigateToDynamicScreen(
+                    "Segmented Button", const SegmentedButtonContent());
               }),
         ],
         ...[
@@ -94,14 +86,52 @@ class BasicContent extends StatelessWidget {
         ],
         ...[
           const GroupHeader("Containment"),
-          ListTile(title: const Text("Bottom Sheets"), onTap: () {}),
-          ListTile(title: const Text("Cards"), onTap: () {}),
-          ListTile(title: const Text("Carousel"), onTap: () {}),
-          ListTile(title: const Text("Dialogs"), onTap: () {}),
-          ListTile(title: const Text("Dividers"), onTap: () {}),
-          ListTile(title: const Text("List"), onTap: () {}),
-          ListTile(title: const Text("Side Sheets"), onTap: () {}),
-          ListTile(title: const Text("Tooltips"), onTap: () {}),
+          ListTile(
+              title: const Text("Bottom Sheets"),
+              onTap: () {
+                context.navigateToDynamicScreen(
+                    "Bottom Sheets", const BottomSheetContent());
+              }),
+          ListTile(
+              title: const Text("Cards"),
+              onTap: () {
+                context.navigateToDynamicScreen("Cards", const CardContent());
+              }),
+          ListTile(
+              title: const Text("Carousel"),
+              onTap: () {
+                context.navigateToDynamicScreen(
+                    "Carousel", const CarouselContent());
+              }),
+          ListTile(
+              title: const Text("Dialogs"),
+              onTap: () {
+                context.navigateToDynamicScreen(
+                    "Dialogs", const DialogContent());
+              }),
+          ListTile(
+              title: const Text("Dividers"),
+              onTap: () {
+                context.navigateToDynamicScreen(
+                    "Dividers", const DividerContent());
+              }),
+          ListTile(
+              title: const Text("List"),
+              onTap: () {
+                context.navigateToDynamicScreen("List", const ListContent());
+              }),
+          ListTile(
+              title: const Text("Side Sheets"),
+              onTap: () {
+                context.navigateToDynamicScreen(
+                    "Side Sheets", const SideSheetsContent());
+              }),
+          ListTile(
+              title: const Text("Tooltips"),
+              onTap: () {
+                context.navigateToDynamicScreen(
+                    "Tooltips", const TooltipsContent());
+              }),
         ],
         ...[
           const GroupHeader("Navigation"),
@@ -115,14 +145,30 @@ class BasicContent extends StatelessWidget {
         ],
         ...[
           const GroupHeader("Selection"),
-          ListTile(title: const Text("Checkbox"), onTap: () {}),
+          ...[
+            "Checkbox",
+            "Chips",
+            "Date Pickers",
+            "Menus",
+            "Radio Button",
+            "Sliders",
+            "Switch",
+            "Time Pickers",
+          ].map((e) => ListTile(
+                title: Text(e),
+                onTap: () {
+                  context.navigateToDynamicScreen(
+                      "Selection", const SelectionContent());
+                },
+              )),
+          /*ListTile(title: const Text("Checkbox"), onTap: () {}),
           ListTile(title: const Text("Chips"), onTap: () {}),
           ListTile(title: const Text("Date Pickers"), onTap: () {}),
           ListTile(title: const Text("Menus"), onTap: () {}),
           ListTile(title: const Text("Radio Button"), onTap: () {}),
           ListTile(title: const Text("Sliders"), onTap: () {}),
           ListTile(title: const Text("Switch"), onTap: () {}),
-          ListTile(title: const Text("Time Pickers"), onTap: () {}),
+          ListTile(title: const Text("Time Pickers"), onTap: () {}),*/
         ],
         ...[
           const GroupHeader("Other"),
