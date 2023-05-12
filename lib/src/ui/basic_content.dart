@@ -1,6 +1,7 @@
 import 'package:basic_flutter/src/common/extensions/context_ext.dart';
 import 'package:basic_flutter/src/ui/components/action_content.dart';
 import 'package:basic_flutter/src/ui/components/communication_content.dart';
+import 'package:basic_flutter/src/ui/components/navigation_content.dart';
 import 'package:flutter/material.dart';
 
 import '../common/ui/group_header.dart';
@@ -12,6 +13,7 @@ import 'components/divider_content.dart';
 import 'components/list_content.dart';
 import 'components/selection_content.dart';
 import 'components/side_sheets_content.dart';
+import 'components/text_input_content.dart';
 import 'components/tooltips_content.dart';
 
 class BasicContent extends StatelessWidget {
@@ -45,12 +47,12 @@ class BasicContent extends StatelessWidget {
             "Progress Indicators",
             "Snackbar",
           ].map((e) => ListTile(
-            title: Text(e),
-            onTap: () {
-              context.navigateToDynamicScreen(
-                  "Communication", const CommunicationContent());
-            },
-          )),
+                title: Text(e),
+                onTap: () {
+                  context.navigateToDynamicScreen(
+                      "Communication", const CommunicationContent());
+                },
+              )),
         ],
         ...[
           const GroupHeader("Containment"),
@@ -103,13 +105,21 @@ class BasicContent extends StatelessWidget {
         ],
         ...[
           const GroupHeader("Navigation"),
-          ListTile(title: const Text("Bottom App Bar"), onTap: () {}),
-          ListTile(title: const Text("Navigation Bar"), onTap: () {}),
-          ListTile(title: const Text("Navigation Drawer"), onTap: () {}),
-          ListTile(title: const Text("Navigation Rail"), onTap: () {}),
-          ListTile(title: const Text("Search"), onTap: () {}),
-          ListTile(title: const Text("Tabs"), onTap: () {}),
-          ListTile(title: const Text("Top App Bar"), onTap: () {}),
+          ...[
+            "Bottom App Bar",
+            "Navigation Bar",
+            "Navigation Drawer",
+            "Navigation Rail",
+            "Search",
+            "Tabs",
+            "Top App Bar",
+          ].map((e) => ListTile(
+                title: Text(e),
+                onTap: () {
+                  context.navigateToDynamicScreen(
+                      "Navigation", const NavigationContent());
+                },
+              )),
         ],
         ...[
           const GroupHeader("Selection"),
@@ -131,9 +141,13 @@ class BasicContent extends StatelessWidget {
               )),
         ],
         ...[
-          const GroupHeader("Other"),
-          ListTile(title: const Text("Text Inputs"), onTap: () {}),
-          ListTile(title: const Text("Color Schemes"), onTap: () {}),
+          const GroupHeader("Text Inputs"),
+          ListTile(
+              title: const Text("Text Fields"),
+              onTap: () {
+                context.navigateToDynamicScreen(
+                    "Text Inputs", const TextInputContent());
+              }),
         ]
       ],
     );
