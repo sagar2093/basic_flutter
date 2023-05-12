@@ -7,15 +7,14 @@ class GroupHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Theme.of(context).primaryColorLight,
-      child: Column(
-        children: [
-          //const Divider(height: 1),
-          ListTile(title: Text(title)),
-          //const Divider(height: 1),
-        ],
-      ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        const Divider(height: 1),
+        ListTile(
+            title: Text(title, style: Theme.of(context).textTheme.titleLarge)),
+        const Divider(height: 1),
+      ],
     );
   }
 }

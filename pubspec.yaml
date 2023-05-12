@@ -7,11 +7,15 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.19.6 <3.0.0'
+  sdk: '>=3.0.0 <4.0.0'
+  #sdk: '>=2.19.6 <3.0.0'
 
 dependencies:
   provider: ^6.0.5
   url_launcher: ^6.1.10
+
+  material_3_demo:
+    path: material_3_demo
 
   flutter:
     sdk: flutter

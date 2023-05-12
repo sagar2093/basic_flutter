@@ -1,4 +1,6 @@
+import 'package:basic_flutter/src/common/extensions/context_ext.dart';
 import 'package:flutter/material.dart';
+import 'package:material_3_demo/demo_m3.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../common/ui/group_header.dart';
@@ -99,16 +101,27 @@ class QuickLinksList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-        children: quickLinks.entries
-            .map((e) => ListTile(
-                  title: Text(e.key),
-                  subtitle: Text(e.value),
-                  onTap: () {
-                    _launchUrl(Uri.parse(e.value));
-                  },
-                ))
-            .toList());
+    return ListView(children: [
+      ListTile(
+        title: const Text("M3 Demo"),
+        subtitle: const Text(
+            "https://github.com/flutter/samples/tree/main/material_3_demo"),
+        onTap: () {
+          context.navigateToCustomScreen(builder: (c) {
+            return const M3DemoApp();
+          });
+        },
+      ),
+      ...quickLinks.entries
+          .map((e) => ListTile(
+                title: Text(e.key),
+                subtitle: Text(e.value),
+                onTap: () {
+                  _launchUrl(Uri.parse(e.value));
+                },
+              ))
+          .toList(),
+    ]);
   }
 }
 

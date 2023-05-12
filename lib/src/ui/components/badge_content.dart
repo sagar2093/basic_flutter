@@ -23,7 +23,7 @@ class _BadgeContentState extends State<BadgeContent> {
         gh8x2,
         const Badge(
           label: Text("123"),
-          child: Text("456789"),
+          child: Icon(Icons.notifications),
         ),
         gh8x2,
         const Badge(
@@ -40,51 +40,27 @@ class _BadgeContentState extends State<BadgeContent> {
           },
           selectedIndex: currentPageIndex,
           destinations: [
-            Stack(
-              alignment: Alignment.centerRight,
-              children: const [
-                NavigationDestination(
-                  icon: Icon(Icons.mail),
-                  label: "Mail",
-                ),
-                Badge(
-                  label: Text("99"),
-                )
-              ],
+            NavigationDestination(
+              icon: Badge.count(count: 1000,child:Icon(Icons.mail)),
+              label: "Mail",
             ),
             NavigationDestination(
-              icon: Stack(
-                children: const [
-                  Icon(Icons.chat_bubble_outline),
-                  Badge(label: Text("10")),
-                ],
-              ),
+              icon: Badge.count(count: 10,child:Icon(Icons.chat_bubble_outline)),
               label: "Chat",
             ),
             NavigationDestination(
-              icon: Stack(
-                alignment: Alignment.topRight,
-                children: const [Icon(Icons.groups_outlined), Badge()],
-              ),
+              icon: Badge(child:Icon(Icons.groups_outlined)),
               label: "Rooms",
             ),
             NavigationDestination(
-              icon: Stack(
-                alignment: Alignment.topRight,
-                children: const [
-                  Icon(Icons.videocam_outlined),
-                  Badge(
-                    label: Text("3"),
-                  ),
-                ],
-              ),
+              icon: Badge.count(count:3,child:Icon(Icons.videocam_outlined)),
               label: "Meet",
             ),
           ],
         ),
         gh8x2,
         const Text(
-            "More badge options can be implemented from package Badges available at"),
+            "More badge options can be implemented from package Badges available at",textAlign: TextAlign.center,),
         FilledButton(
             onPressed: () {
               _launchUrl(Uri.parse("https://pub.dev/packages/badges"));
