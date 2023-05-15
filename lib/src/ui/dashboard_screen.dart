@@ -74,16 +74,65 @@ class AdvancedContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: const [
-        ListTile(title: Text("Themes")),
-        ListTile(title: Text("Localization")),
-        ListTile(title: Text("Fonts")),
+        GroupHeader("Resource Usage"),
         ...[
-          GroupHeader("Flutter Favorites"),
+          ListTile(title: Text("Themes")),
+          ListTile(title: Text("Localization")),
+          ListTile(title: Text("Fonts")),
+        ],
+        ...[
+          GroupHeader("Flutter Plus"),
+          ListTile(
+            title: Text("Battery Plus"),
+            subtitle: Text("https://pub.dev/packages/battery_plus"),
+          ),
+          ListTile(
+            title: Text("Connectivity Plus"),
+            subtitle: Text("https://pub.dev/packages/connectivity_plus"),
+          ),
+          ListTile(
+            title: Text("Device Info Plus"),
+            subtitle: Text("https://pub.dev/packages/device_info_plus"),
+          ),
+          ListTile(
+            title: Text("Network Info Plus"),
+            subtitle: Text("https://pub.dev/packages/network_info_plus"),
+          ),
+          ListTile(
+            title: Text("Package Info Plus"),
+            subtitle: Text("https://pub.dev/packages/package_info_plus"),
+          ),
+          ListTile(
+            title: Text("Sensors Plus"),
+            subtitle: Text("https://pub.dev/packages/share_plus"),
+          ),
+          ListTile(
+            title: Text("Share Plus"),
+            subtitle: Text("https://pub.dev/packages/sensors_plus"),
+          ),
+          ListTile(
+            title: Text("Android Alarm Manager Plus"),
+            subtitle:
+                Text("https://pub.dev/packages/android_alarm_manager_plus"),
+          ),
+          ListTile(
+            title: Text("Android Intent Plus"),
+            subtitle: Text("https://pub.dev/packages/android_intent_plus"),
+          ),
+        ],
+        ...[
+          GroupHeader("Flutter Favorites (Selected Only)"),
           ListTile(title: Text("Shared Preferences")),
           ListTile(title: Text("Url Launcher")),
           ListTile(title: Text("Image Picker")),
           ListTile(title: Text("File Picker")),
           ListTile(title: Text("Video Player")),
+          ListTile(title: Text("Flutter Local Notifications")),
+          ListTile(title: Text("Auto Size Text")),
+          ListTile(title: Text("Flutter Slidable")),
+          ListTile(title: Text("Infinite Scroll Pagination")),
+          ListTile(title: Text("Drift")),
+
         ],
       ],
     );

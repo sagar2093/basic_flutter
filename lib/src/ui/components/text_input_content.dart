@@ -161,7 +161,7 @@ class _TextFieldsState extends State<TextFields> {
                 decoration: InputDecoration(
                   prefixIcon: const Icon(Icons.search),
                   suffixIcon: _ClearButton(controller: _controllerOutlined),
-                  labelText: 'Disabled',
+                  labelText: 'Dicsabled',
                   hintText: 'hint text',
                   helperText: 'supporting text',
                   border: const OutlineInputBorder(),
